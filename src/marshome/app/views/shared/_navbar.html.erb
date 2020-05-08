@@ -1,0 +1,98 @@
+<!-- Static navbar -->
+    <nav class="navbar navbar-default navbar-static-top navbar" >
+      <div class="container" style="height: 60px">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+
+
+          
+            <a class="navbar-brand nav_logo" href="#" >
+            <%# <img src="/brand/marsbnb10.png" height="40" alt="" > %>
+            <img src="/brand/marsbnb10.png" height="40" alt="" >
+            </a>
+
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          
+          
+          <ul class="nav navbar-nav pull-right nav_btn_pad">
+
+
+            <% if (!user_signed_in?) %>
+              <li>
+              <%= link_to new_user_session_path do %>
+              <%= image_tag("/brand/login_acc8.png", class: "img-circle avatar_small", style: 'display:inline' ) %>
+              <%= " Login" %>
+              <% end %>
+              </li>
+              <li>
+              <%= link_to new_user_registration_path do %>
+              <%= image_tag("/brand/add_acc8.png", class: "img-circle avatar_small", style: 'display:inline' ) %>
+              <%= " Sign Up" %>
+              <% end %>
+              </li>
+            <% else %>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+              <%= image_tag avatar_url(current_user), class: "img-circle avatar_small" %>&nbsp;
+              <%= current_user.fullname %> <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+
+                <%# needs proper link %>
+                <li>
+                <%= link_to new_user_registration_path do %>
+                   <%= image_tag("/brand/manage2.png", class: "img-circle avatar_small", style: 'display:inline' ) %>
+                   <%= "Manage Listings" %>
+                <% end %>                
+                </li>
+                <%# needs proper link %>
+                <li>
+                <%= link_to new_user_registration_path do %>
+                   <%= image_tag("/brand/list2.png", class: "img-circle avatar_small", style: 'display:inline' ) %>
+                   <%= "Create Listing" %>
+                <% end %>                
+                </li>
+                <%# needs proper link %>
+                <li>
+                <%= link_to edit_user_registration_path do %>
+                   <%= image_tag("/brand/dates2.png", class: "img-circle avatar_small", style: 'display:inline' ) %>
+                   <%= "Your Reservations" %>
+                <% end %>                
+                </li>
+                <%# needs proper link %>
+                <li>
+                <%= link_to edit_user_registration_path do %>
+                   <%= image_tag("/brand/trip.png", class: "img-circle avatar_small", style: 'display:inline' ) %>
+                   <%= "Your Trips" %>
+                <% end %>                
+                </li>
+
+                <li role="separator" class="divider"></li>
+                <li>
+                <%= link_to edit_user_registration_path do %>
+                   <%= image_tag("/brand/edit.png", class: "img-circle avatar_small", style: 'display:inline' ) %>
+                   <%= "Edit Profile" %>
+                <% end %>                
+                </li>
+
+                <li>
+                <%= link_to destroy_user_session_path, method: :delete do %>
+                   <%= image_tag("/brand/log_out2.png", class: "img-circle avatar_small", style: 'display:inline' ) %>
+                   <%= "Log Out"  %>
+                <% end %>
+               </li>
+
+              </ul>
+            </li>
+            <% end %>
+            
+            
+       </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
