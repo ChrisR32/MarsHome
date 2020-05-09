@@ -8,7 +8,7 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  # config.secret_key = '1c1779cc90930e2c3699e63fce032be0e52a2a44aab84cec2d2ca316d16e4443404fa591ae0fe9ec3c303c315b11ab5b7e6248ef6a249f17b488fcd56a7facbe'
+  # config.secret_key = 'cafd9ab38a52bf5e210224281d522526923ba5902b6a6fa8440d4111c2fd2c75a371f47a309de6e6db8009b8f80b87658f63a182009059e485b89dc4aeda2918'
 
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
@@ -18,7 +18,7 @@ Devise.setup do |config|
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
-  config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'
+  config.mailer_sender = 'Admin @ MarsBNB <no-reply@marsbnb.com>'
 
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
@@ -114,7 +114,7 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 11
 
   # Set up a pepper to generate the hashed password.
-  # config.pepper = '4590d85d3793162186df32d632721a10862a93ab85886da1fc56201c7863837d7da698b1eefcc309cca39378619f4ee242d1d213616b3fd8e8435812d493be20'
+  # config.pepper = '896ce8102dffc1d79c314a035f0220a32be90105a4951511e3df08814f427bb0fb9c7737febb95582566105049c6f3b11a685f8bd09e219f95b284078f1554ca'
 
   # Send a notification to the original email when the user's email is changed.
   # config.send_email_changed_notification = false
@@ -145,7 +145,7 @@ Devise.setup do |config|
   # initial account confirmation) to be applied. Requires additional unconfirmed_email
   # db field (see migrations). Until confirmed, new email is stored in
   # unconfirmed_email column, and copied to email column on successful confirmation.
-  config.reconfirmable = true
+  config.reconfirmable = false
 
   # Defines which key will be used when confirming an account
   # config.confirmation_keys = [:email]
@@ -296,4 +296,7 @@ Devise.setup do |config|
   # When set to false, does not sign a user in automatically after their password is
   # changed. Defaults to true, so a user is signed in automatically after changing a password.
   # config.sign_in_after_change_password = true
+
+config.omniauth :facebook, '738065843398295', 'fbf4164eddb6bffd636504d11a8cef6f', scope: 'email', info_fields: 'email, name'
+
 end

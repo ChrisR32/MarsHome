@@ -10,7 +10,10 @@
   <%= render 'shared/devisemes' %>
 
   <div class="form-group">
-    <%= f.text_field :fullname, autofocus: true, placeholder: "Full Name", class: "form-control" %>
+    <%= f.text_field :first_name, autofocus: true, placeholder: "First Name", class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.text_field :last_name, autofocus: true, placeholder: "Last Name", class: "form-control" %>
   </div>
 
 
@@ -31,7 +34,7 @@
 <% end %>
 
 <hr/>
-<%= link_to "Sign up with Facebook", user_facebook_omniauth_authorize_path, class: "btn btn-facebook btn-block" %>
+ <%= link_to "Sign up with Facebook", user_facebook_omniauth_authorize_path, class: "btn btn-facebook btn-block" %>
 
 
 </div>
