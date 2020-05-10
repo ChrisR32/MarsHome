@@ -1,0 +1,41 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  description: MyText
+  listing_date: 2020-05-11
+  bed_room: 1
+  bath_room: 1
+  parking_space: 1
+  living_area: 1
+  air_conditioning: false
+  heating: false
+  yard: false
+  smart_system: false
+  price: 1.5
+  address_number: 1
+  address_street: MyString
+  address_zone: MyString
+  address_city: MyString
+  active: false
+  user: one
+
+two:
+  title: MyString
+  description: MyText
+  listing_date: 2020-05-11
+  bed_room: 1
+  bath_room: 1
+  parking_space: 1
+  living_area: 1
+  air_conditioning: false
+  heating: false
+  yard: false
+  smart_system: false
+  price: 1.5
+  address_number: 1
+  address_street: MyString
+  address_zone: MyString
+  address_city: MyString
+  active: false
+  user: two
