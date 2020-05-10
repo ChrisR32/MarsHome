@@ -1,0 +1,41 @@
+<div class="row">
+    <div class="col-md-3">
+    <%= render 'listing_menu' %>
+</div>
+<div class="col-md-9">
+    <div class="panel panel-default">
+
+<h1 class="text-center">Property Features</h1>
+
+    <div class="panel-body">
+        <div class="container">
+            <%= form_for @listing do |f| %>
+
+<div class="row form-group">
+<div class="col-md-6"><h3>
+<%= f.check_box :smart_system %> Smart Enabled Home</h3>
+</div>
+<div class="col-md-6"><h3>
+<%= f.check_box :yard %> Outdoor Area</h3>
+</div>
+</div>
+<div class="row form-group">
+<div class="col-md-6"><h3>
+<%= f.check_box :air_conditioning %> Air Conditioning</h3>
+</div>
+<div class="col-md-6"><h3>
+<%= f.check_box :heating %> Heating</h3>
+</div>
+
+</div>
+<br/><br/>
+<div class="text-center">
+<%= f.submit "Save", class: "btn btn-form" %>
+</div>
+            <% end %>
+        </div>
+    </div>
+    
+   </div>
+  </div>
+</div> 

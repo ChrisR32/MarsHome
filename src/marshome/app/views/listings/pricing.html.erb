@@ -1,0 +1,31 @@
+<div class="row">
+    <div class="col-md-3">
+    <%= render 'listing_menu' %>
+</div>
+<div class="col-md-9">
+    <div class="panel panel-default">
+
+<h1 class="text-center">Property Price</h1>
+
+    <div class="panel-body">
+        <div class="container">
+<%= form_for @listing do |f| %>
+
+<div class="row">
+    <div class="form-group">
+        <h3><label>Please enter the list price ($)</label></h3>
+        <%= f.number_field :price, placeholder: "eg 100000", class: "form-control", required: true, step: :any %>
+        </div>
+    </div>
+
+    <div class="text-center">
+        <%= f.submit "Save", class: "btn btn-form" %>
+        </div>
+        
+            <% end %>
+        </div>
+    </div>
+    
+   </div>
+  </div>
+</div> 

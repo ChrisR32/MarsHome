@@ -7,9 +7,9 @@ class User < ApplicationRecord
   has_many :listings
   has_many :rating_totals
   has_many :messages
-  has_one :phones
-  has_one :emails
-  has_one :profile_pictures
+  # has_one :phones
+  # has_one :emails
+  # has_one :profile_pictures
 
 def self.from_omniauth(auth)
   user = User.where(email: auth.info.email).first

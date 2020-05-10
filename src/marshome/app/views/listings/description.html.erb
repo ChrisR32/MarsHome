@@ -1,0 +1,60 @@
+<div class="row">
+    <div class="col-md-3">
+    <%= render 'listing_menu' %>
+</div>
+<div class="col-md-9">
+<h1 class="text-center">Description</h1>
+    <br/>
+
+        <div class="container">
+<%= form_for @listing do |f| %>
+
+
+
+
+<div class="row">
+<div class="col-md-4">
+                    <div class="form-group">
+                        <h3><label>Home Type</label></h3>
+                        <%= f.select :living_area, [["Rural Pod Small", 1], ["Rural Pod Large", 2], ["Rural Classic Settler", 3], ["Space Station Quarters", 4], ["City Unit", 5], ["City House", 6]], 
+                                     id: "living_area", prompt: "Select...", class: "form-control" %>
+
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                    
+                    
+                    <div class="form-group">
+                        <h3><label>Bed Rooms</label></h3>
+                        <%= f.select :bed_room, [["1", 1], ["2", 2], ["3", 3], ["4", 4], ["5", 5], ["6+", 6]],
+                                    id: "bed_room", prompt: "Select...", class: "form-control" %>
+
+                        </div>
+                    </div>
+<div class="col-md-4">
+                    <div class="form-group">
+                        <h3><label>Bath Rooms</label></h3>
+                        <%= f.select :bath_room, [["1", 1], ["2", 2], ["3", 3], ["4+", 4]],
+                                    id: "bath_room", prompt: "Select...", class: "form-control" %>
+
+                        </div>
+                       
+                    </div>
+                    <br/>
+<div class="col-md-12">
+    <div class="form-group">
+        <h3><label>Description</label></h3>
+        <%= f.text_area :description, rows: 5, placeholder: "Tell us about your listing.", class: "form-control", required: true %>
+        </div> 
+        <br/>
+    </div>
+
+    <div class="text-center">
+        <%= f.submit "Save", class: "btn btn-form" %>
+        </div>
+        
+            <% end %>
+        </div>
+    </div>
+    
