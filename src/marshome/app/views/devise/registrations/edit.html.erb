@@ -1,14 +1,25 @@
 <div class="row">
   <div class="col-md-3">
     <ul class="sidebar-list">
-      <li class="sidebar-item"><%= link_to "Edit Profile", edit_user_registration_path, class: "sidebar-link active" %></li>
-      </ul>
-      <br/>
-      <%= link_to "View My Profile", user_path(current_user.id), class: "btn btn-default" %>
+<li class="sidebar-item">
+
+
+
+    <%= image_tag avatar_url(@user), class: "avatar_full" %></li>
+<li class="sidebar-item">
+<%= link_to "Change Profile Picture", user_path(current_user.id), class: "btn btn-default active" %></li>
+<li class="sidebar-item">
+<%= link_to "Verify My Account", user_path(current_user.id), class: "btn btn-default active" %></li>
+      <li class="sidebar-item"><%= link_to "Edit Profile", edit_user_registration_path, class: "btn btn-default_selected" %></li>
+      
+     
+      <%= link_to "View My Profile", user_path(current_user.id), class: "btn btn-default active" %>
+    </ul>
     </div>
     <div class="col-md-9 text-center">
       <div class="panel panel-default">
-        <div class="panel-heading">Your Profile</div>
+     <h2 class="text-center">Edit Profile</h2>
+     <br/>
           <div class="container">
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
