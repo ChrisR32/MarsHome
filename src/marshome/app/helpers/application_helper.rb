@@ -1,5 +1,10 @@
 module ApplicationHelper
     def avatar_url(user)
-# add the user profile pic url here
+        if user.image_fb
+            "http://graph.facebook.com/#{user.uid}/picture?type=large"
+        else
+       
+        "/slide/person1.png"
+        end
     end
 end
