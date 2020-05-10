@@ -140,6 +140,16 @@ element.style {
     margin-top: 10px;
 }
 
+.btn.btn-default_selected {
+    width: 100%;
+    border-color: #484848;
+    background: #484848;
+    color: white;
+    border-radius: 2px;
+    padding: 10px 0;
+    margin-top: 10px;
+}
+
 .btn.btn-normal {
     border: 1px solid #ff5a5f;
     background-color: #ff5a5f;
@@ -200,6 +210,11 @@ element.style {
 }
 
 // panels
+
+.panel-default {
+    background: none;
+    border: none;
+}
 
 .panel-default .panel-heading {
     color: #ffff;

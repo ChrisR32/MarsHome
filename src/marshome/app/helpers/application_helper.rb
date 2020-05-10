@@ -4,7 +4,7 @@ module ApplicationHelper
             "http://graph.facebook.com/#{user.uid}/picture?type=large"
         else
        
-        "/slide/person1.png"
+        "/slide/default_user5.png"
         end
     end
 end
