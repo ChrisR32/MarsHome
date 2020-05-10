@@ -71,3 +71,4 @@ gem 'omniauth-facebook', '~> 4.0'
 gem 'paperclip'
 gem 'aws-sdk'
 gem "pg", "~> 1.2"
+gem "figaro"
