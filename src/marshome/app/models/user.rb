@@ -23,6 +23,7 @@ def self.from_omniauth(auth)
         user.first_name = auth.info.first_name   # assuming the user model has a name
         user.last_name = auth.info.last_name   # assuming the user model has a name
         user.image_fb = auth.info.image_fb # assuming the user model has an image
+
         user.uid = auth.uid
         user.provider = auth.provider
         # If you are using confirmable and the provider(s) you use validate emails, 
