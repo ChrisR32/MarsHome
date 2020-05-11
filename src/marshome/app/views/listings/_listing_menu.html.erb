@@ -1,24 +1,43 @@
-<ul class="sidebar-list">
+     <ul class="sidebar-list">
     <li class="sidebar-item">
-        <h3><%= link_to "Location and Title", post_listing_path, class: "sidebar-link active" %></h3>
+        <%= link_to "Location and Title", post_listing_path, class: "sidebar-link active" %>
+        <% if !@listing.title.blank? %>
+        <span class = "pull-right text-babu"><i class="fa fa-check"></i></span>
+        <% end %>
     </li>
         <li class="sidebar-item">
-        <h3><%= link_to "Description", description_listing_path, class: "sidebar-link active" %></h3>
+        <%= link_to "Description", description_listing_path, class: "sidebar-link active" %>
+            <% if !@listing.bed_room.blank? %>
+        <span class = "pull-right text-babu"><i class="fa fa-check"></i></span>
+        <% end %>
     </li>    
         <li class="sidebar-item">
-        <h3><%= link_to "Address", location_listing_path, class: "sidebar-link active" %></h3>
+        <%= link_to "Address", location_listing_path, class: "sidebar-link active" %>
+                   <% if !@listing.address_zone.blank? %>
+        <span class = "pull-right text-babu"><i class="fa fa-check"></i></span>
+        <% end %>
     </li>    
         <li class="sidebar-item">
-        <h3><%= link_to "Features", amenities_listing_path, class: "sidebar-link active" %></h3>
+        <%= link_to "Features", amenities_listing_path, class: "sidebar-link active" %>
+        <span class = "pull-right text-babu"><i class="fa fa-check"></i></span>
     </li>    
         <li class="sidebar-item">
-        <h3><%= link_to "Photos", photo_upload_listing_path, class: "sidebar-link active" %></h3>
+        <%= link_to "Photos", photo_upload_listing_path, class: "sidebar-link active" %>
+                   <% if !@listing.photos.blank? %>
+        <span id="photo_check" class = "pull-right text-babu"><i class="fa fa-check"></i></span>
+        <% end %>
     </li>
         <li class="sidebar-item">
-        <h3><%= link_to "Pricing", pricing_listing_path, class: "sidebar-link active" %></h3>
+        <%= link_to "Pricing", pricing_listing_path, class: "sidebar-link active" %>
+                   <% if !@listing.price.blank? %>
+        <span class = "pull-right text-babu"><i class="fa fa-check"></i></span>
+        <% end %>
     </li>
-
-
-
-
 </ul>
+<br/>
+<% is_ready = !@listing.active && !@listing.title.blank? && !@listing.bed_room.blank? && !@listing.address_zone.blank? && !@listing.photos.blank? && !@listing.price.blank? %>
+<%= form_for @listing do |f| %>
+    <%= f.hidden_field :active, value: true %>
+    <%= f.submit "Publish", id: "publish_button", class: "btn btn-normal btn-block", disabled: !is_ready %>
+<% end %>
+

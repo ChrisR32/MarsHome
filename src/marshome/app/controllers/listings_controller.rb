@@ -44,7 +44,11 @@ class ListingsController < ApplicationController
     end
   
     def update
-      if @listing.update(listing_params)
+    
+        new_params = listing_params # these 2 lines stop people inspecting the code on publish button and tricking it into commiting
+        new_params = listing_params.merge(active: true) if is_listing_complete
+
+      if @listing.update(new_params)
         flash[:notice] = "Saved..."
       else
         flash[:alert] = "Invalid seletion, please try again..."
@@ -61,6 +65,10 @@ class ListingsController < ApplicationController
     redirect_to root_path, alert: "You don't have permission" unless current_user.id == @listing.user_id
   end
   
+  def is_listing_complete
+    !@listing.active && !@listing.title.blank? && !@listing.bed_room.blank? && !@listing.address_zone.blank? && !@listing.photos.blank? && !@listing.price.blank?
+  end
+
   def listing_params
     params.require(:listing).permit(:title, :description, :bed_room, :bath_room, :parking_space, :living_area, :air_conditioning, :heating, :yard, :smart_system, :price, :address_number, :address_street, :address_zone, :address_city, :active, :image)
   end

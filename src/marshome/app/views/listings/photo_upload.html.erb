@@ -1,34 +1,32 @@
 <div class="row">
-    <div class="col-md-3">
+    <div class="col-md-3">  
     <%= render 'listing_menu' %>
 </div>
 <div class="col-md-9">
-    <div class="panel panel-default">
-
-    <div class="panel-heading">
-    Photos
-    </div>
-
-    <div class="panel-body">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-offset-3 col-md-6">
-                <!-- PHOTO UPLOAD HERE -->
+<h1 class="text-center">Upload Photos</h1>
+    <br/>
+<div class="container">
+    <div class="row">
+        <div class="col-md-offset-4 col-md-5">
                 <%= form_for @listing, url: listing_photos_path(@listing), method: 'post', html: {multipart: true} do |f| %>
-                <div class="row">
-                    <div class="form-group">
-                    <span class="btn btn-default btn-file text-babu">
-                    <i class="fa fa-cloud-upload" aria-hidden="true"></i>Select Photos
+                    <div class="form-group">                   
+                    <span class="btn btn-squared-default btn-file text-babu">
+                     <div class="text-center">
+<img src="/slide/upload2.png" style="width:100%; align: center; padding-bottom: 10px"></div>
+<div class="text-center">Select Photos</div>
                     <%= file_field_tag "images[]", type: :file, multiple: true %>
                     </span>
                 </div>
-            </div>
-                <div class="text-center">
+</div>
+      </div>   
+
+         <div class="container">
+            <div class="row">
+                <div class="text-center"> 
                     <%= f.submit "Add Photos", class: "btn btn-form" %>
                 </div>
                 <% end %>
 
-        </div>
     </div>
 
         <div id="photos"><%= render 'photos/photos_list' %></div>
