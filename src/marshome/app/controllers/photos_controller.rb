@@ -22,4 +22,5 @@ class PhotosController < ApplicationController
         respond_to :js
     end
 
+
 end
