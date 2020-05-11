@@ -12,7 +12,7 @@
         <h3><%= link_to "Features", amenities_listing_path, class: "sidebar-link active" %></h3>
     </li>    
         <li class="sidebar-item">
-        <h3><%= link_to "Photos", photo_upload_listing_path, class: "sidebar-link active" %></h3>
+        <h3><%= link_to "Photos", photo_upload_listing_path(listing.id), class: "sidebar-link active" %></h3>
     </li>
         <li class="sidebar-item">
         <h3><%= link_to "Pricing", pricing_listing_path, class: "sidebar-link active" %></h3>
