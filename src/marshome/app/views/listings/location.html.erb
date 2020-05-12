@@ -1,43 +1,47 @@
 <div class="row">
-    <div class="col-md-3">
-   
-    <%= render 'listing_menu', listing: @listing %>
-</div>
-<div class="col-md-9">
+    <div class="col-md-2">
+        <%= render 'listing_menu', listing: @listing %>
+    </div>
+<div class="col-md-10">
     <div class="panel panel-default">
-
-<h1 class="text-center">Address</h1>
-
-    <div class="panel-body">
+                <h1 class="text-center">Where is your property located?</h1>
+          <div class="panel-body">
         <div class="container">
-           <%= form_for @listing do |f| %>
-
-<div class="row">
-    <div class="row form-group">
-<div class="col-md-3">
-        <h3><label>Number</label></h3>
-        <%= f.number_field :address_number, placeholder: "Street Number", class: "form-control", required: true %>
-        </div>
-        <div class="col-md-9">    
-        <h3><label>Street</label></h3>
-        <%= f.text_field :address_street, placeholder: "Street Name", class: "form-control", required: true %>
-        </div>
-        </div>
-            <div class="form-group">
-        <h3><label>Zone</label></h3>
-        <%= f.text_field :address_zone, placeholder: "Sreet Zone", class: "form-control", required: true %>
-        </div>
-<br/>
-    </div>
-
-    <div class="text-center">
-        <%= f.submit "Save", class: "btn btn-form" %>
-        </div>
-
-            <% end %>
-        </div>
-    </div>
+            <%= form_for @listing do |f| %>
+            <div class="row">
+                            <div class="col-md-2">
+                            <div class="form-group">
+                                <h3><label>Number</label></h3>
+                                <%= f.number_field :address_number, placeholder: "Street Number", class: "form-control", required: true %>
+                            </div>
+                            </div>
+                            <div class="col-md-10">
+                            <div class="form-group">    
+                                <h3><label>Street Name</label></h3>
+                                <%= f.text_field :address_street, placeholder: "Street Name", class: "form-control", required: true %>
+                            </div>
+                            </div>
+                            <div class="col-md-12"> 
+                            <div class="form-group">
+                                <h3><label>Suburb</label></h3>
+                                <%= f.text_field :address_zone, placeholder: "Sreet Zone", class: "form-control", required: true %>
+                            </div>
+                            </div>
+                            <div class="col-md-12">
+                            <div class="form-group">
+                                <h3><label>City</label></h3>
+                                <%= f.select :address_city, [["New Cloud City", "New Cloud City"], ["Upper West Dome City", "Upper West Dome City"], ["Mars Space Station", "Mars Space Station"], ["First Settlers Colony", "First Settlers Colony"], ["Rural", "Rural"]],
+                                    id: "address_city", prompt: "Select...", class: "form-control" %>
+                            </div>  
+                     
     
-   </div>
-  </div>
-</div> 
+                            <br/><br/>
+                                <%= f.submit "Save", class: "btn btn-form btn-block" %>
+       
+
+                <% end %>
+            </div>
+        </div>
+    </div>
+</div>
+</div>

@@ -33,9 +33,21 @@ body {
     padding-bottom: 40px;
 }
 
+img {
+    max-width: 100%;
+    max-height: 100%;
+    display: block;
+}
+
 a {
     color: #00a699;
 }
+
+h3 {
+    color: #565a5c;
+}
+
+
 
 .container {
     width: 90%;
@@ -184,28 +196,52 @@ element.style {
 }
 
 .btn-squared-default {
-    width: 200px !important;
-    height: 200px !important;
+    width: 200px;
+    height: 200px;
     font-size: 20px;
-    background-color: transparent;
-    border-color: #ccc;
-    color: black;
+    background-color: whitesmoke ;
+    border-color: 10px solid whitesmoke;
+    color: #484848;
 }
 
 .btn-squared-default:hover {
         font-weight: 800;
+        color: black;
     }
 
 .btn-squared-default-plain {
     width: 100px !important;
     height: 100px !important;
     font-size: 10px;
+
 }
 
 .btn-squared-default-plain:hover {
         border: 0px solid white;
     }
 
+.btn-photo-remove-default {
+        width: 100%;
+        height: 100%;
+        font-size: 10px;
+        border-color: #ccc;
+        color: black;
+    }
+#li-white {
+        color: whitesmoke;
+        text-decoration: none;
+        font-size: 16px;
+        font-weight: 500;
+    
+    }
+.btn-listing {
+        width: auto;
+        height: 70px;
+        font-size: 20px;
+        background-color: green ;
+        border-color: 10px solid whitesmoke;
+        color: whitesmoke;
+    }
 // footer
 
 .my_footer {
@@ -238,12 +274,18 @@ element.style {
     border: none;
 }
 
+.panel-default-photo {
+    background-color: #fff;
+    border: 10px solid #fff; 
+}
+
 .panel-default .panel-heading {
     color: #ffff;
     background: none;
     font-size: 18px;
     font-weight: 400;
 }
+
 
 .row-space-1 {
     margin-top: 6px;
@@ -327,12 +369,11 @@ element.style {
 }
 
 .form-group input[type="checkbox"] {
-    height: 1.25em;
-    width: 1.25em;
-    margin-bottom: -.25em;
+    height: 1.6em;
+    width: 1.6em;
     margin-right: 5px;
     vertical-align: top;
-    border: 1px solid #00a699;
+    border: 1px solid #565a5c;
     border-radius: 2px;
     appearance: none;
     -moz-appearance: none;
@@ -342,10 +383,10 @@ element.style {
 .form-group input[type="checkbox"]:checked:before {
     content: '\2713';
     position: absolute;
-    font-size: 0.95em;
+    font-size: 1.2em;
     text-align: center;
-    width: 1.25em;
-    color: #00a699;
+    width: 1.5em;
+    color:#565a5c;
 }
 
 // sidebar
@@ -363,6 +404,14 @@ element.style {
 .sidebar-link {
     color: #82888a;
     text-decoration: none;
+    margin-top: 6px;
+    margin-bottom: 6px;
+}
+
+.sidebar-link i, li {
+    color: whitesmoke;
+    text-decoration: none;
+
 }
 
 .sidebar-link:hover, .sidebar-link:focus {
@@ -374,6 +423,14 @@ element.style {
     color: #565a5c;
     font-weight: bold;
     text-decoration: none;
+}
+
+.sidebar-link-disabled {
+    color: #82888a;
+    text-decoration: none;
+    margin-top: 6px;
+    margin-bottom: 6px;
+    opacity: 60%;
 }
 
 // photo upload panel
@@ -405,4 +462,129 @@ element.style {
 
 .panel-heading.preview img {
     width: 100%;
+}
+
+.image_list_thumb {
+    width: 100px;
+}
+
+// carousel
+
+h4 {
+    margin: 20px 10px 10px;
+}
+p {
+    margin: 10px;
+}
+
+
+#carousel-custom {
+    margin: 20px auto;
+    width: 700px;
+    height: 360px
+}
+
+#carousel-custom-thumb {
+    margin: 20px auto;
+    width: 600px;
+    height: 50px
+}
+
+#carousel-custom .carousel-indicators {
+    margin: 10px 0 0;
+    overflow: auto;
+    position: static;
+    text-align: left;
+    white-space: nowrap;
+    width: 100%;
+}
+#carousel-custom .carousel-indicators li {
+    background-color: transparent;
+    -webkit-border-radius: 0;
+    border-radius: 0;
+    display: inline-block;
+    height: auto;
+    margin: 0 !important;
+    width: auto;
+}
+#carousel-custom .carousel-indicators li img {
+    display: block;
+    opacity: 0.5;
+    width: 100px;
+    height: 50px;
+}
+#carousel-custom .carousel-indicators li.active img {
+    opacity: 1;
+}
+#carousel-custom .carousel-indicators li:hover img {
+    opacity: 0.75;
+}
+#carousel-custom .carousel-outer {
+    position: relative;
+}
+
+.carousel-inner .item img {
+    width: 700px;
+    height: 360px;
+}
+
+// view listing
+
+.top-description {
+    width: 100%;
+    height: auto;
+    background-color: white;
+    border-radius: 25px;
+    border: 20px solid white;
+
+    margin-bottom: 6px;
+}
+
+.top-description-highlight {
+    width: 100%;
+    height: 100px;
+    background-color: white;
+    border-radius: 25px;
+    border: 20px solid white;
+
+    margin-bottom: 6px;
+
+}
+
+.mid-description {
+    width: 100%;
+    height: auto;
+    background-color: white;
+    border-radius: 25px;
+    border: 20px solid white;
+    margin-top: 12px;
+    margin-bottom: 12px;
+}
+
+.mid-description-profile {
+    width: 100%;
+    height: auto;
+    background-color: white;
+    border-radius: 25px;
+    border: 20px solid white;
+    margin-top: 12px;
+    margin-bottom: 12px;
+}
+
+.top-description p {
+    font-size: 26px;
+    font-weight: 700;
+    margin-top: 12px;
+    margin-bottom: 12px;    
+}
+
+.header {
+    color: #36A0FF;
+    font-size: 27px;
+    padding: 10px;
+}
+
+.bigicon {
+    font-size: 35px;
+    color: #36A0FF;
 }

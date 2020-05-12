@@ -1,17 +1,46 @@
 <div class="row">
-    <div class="col-md-3">
-    
+    <div class="col-md-2">
     <%= render 'listing_menu', listing: @listing %>
 </div>
-<div class="col-md-9">
+<div class="col-md-10">
     <div class="panel panel-default">
 
-<h1 class="text-center">Property Features</h1>
+<h1 class="text-center">Property Details</h1>
 
     <div class="panel-body">
         <div class="container">
             <%= form_for @listing do |f| %>
 
+<div class="row">
+<div class="col-md-4">
+                    <div class="form-group">
+                        <h3><label>Home Type</label></h3>
+                        <%= f.select :living_area, [["Rural Pod Small", 1], ["Rural Pod Large", 2], ["Rural Classic Settler", 3], ["Space Station Quarters", 4], ["City Unit", 5], ["City House", 6]], 
+                                     id: "living_area", prompt: "Select...", class: "form-control" %>
+
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                    
+                    
+                    <div class="form-group">
+                        <h3><label>Bed Rooms</label></h3>
+                        <%= f.select :bed_room, [["1", 1], ["2", 2], ["3", 3], ["4", 4], ["5", 5], ["6+", 6]],
+                                    id: "bed_room", prompt: "Select...", class: "form-control" %>
+
+                        </div>
+                    </div>
+<div class="col-md-4">
+                    <div class="form-group">
+                        <h3><label>Bath Rooms</label></h3>
+                        <%= f.select :bath_room, [["1", 1], ["2", 2], ["3", 3], ["4+", 4]],
+                                    id: "bath_room", prompt: "Select...", class: "form-control" %>
+
+                        </div>
+                       
+                    </div>
+                    <br/>
 <div class="row form-group">
 <div class="col-md-6"><h3>
 <%= f.check_box :smart_system %> Smart Enabled Home</h3>
@@ -31,7 +60,7 @@
 </div>
 <br/><br/>
 <div class="text-center">
-<%= f.submit "Save", class: "btn btn-form" %>
+<%= f.submit "Save", class: "btn btn-form btn-block" %>
 </div>
             <% end %>
         </div>
