@@ -239,8 +239,9 @@ element.style {
         height: 70px;
         font-size: 20px;
         background-color: green ;
-        border-color: 10px solid whitesmoke;
+        border-color: 20px solid whitesmoke;
         color: whitesmoke;
+        border-radius: 25px;
     }
 // footer
 
@@ -481,7 +482,9 @@ p {
 #carousel-custom {
     margin: 20px auto;
     width: 700px;
-    height: 360px
+    height: 360px;
+    box-shadow: 2px 2px 4px #000000;
+
 }
 
 #carousel-custom-thumb {
@@ -536,16 +539,18 @@ p {
     background-color: white;
     border-radius: 25px;
     border: 20px solid white;
+    box-shadow: 2px 2px 4px #000000;;
 
     margin-bottom: 6px;
 }
 
 .top-description-highlight {
     width: 100%;
-    height: 100px;
+    height: auto;
     background-color: white;
     border-radius: 25px;
     border: 20px solid white;
+    box-shadow: 2px 2px 4px #000000;;
 
     margin-bottom: 6px;
 
@@ -553,12 +558,14 @@ p {
 
 .mid-description {
     width: 100%;
-    height: auto;
+    height: 100%;
     background-color: white;
     border-radius: 25px;
     border: 20px solid white;
     margin-top: 12px;
     margin-bottom: 12px;
+    box-shadow: 2px 2px 4px #000000;;
+
 }
 
 .mid-description-profile {
@@ -569,6 +576,8 @@ p {
     border: 20px solid white;
     margin-top: 12px;
     margin-bottom: 12px;
+    box-shadow: 2px 2px 4px #000000;;
+
 }
 
 .top-description p {
@@ -587,4 +596,48 @@ p {
 .bigicon {
     font-size: 35px;
     color: #36A0FF;
+}
+
+#price-large {
+    text-align: center;
+    font-size: 4.3vw;
+    font-weight: 800;
+}
+
+#created-at-med {
+    text-align: center;
+    font-size: 1.7vw;
+}
+
+#address-large {
+    text-align: center;
+    font-size: 2.2vw;
+}
+
+#listing-title-large {
+    text-align: center;
+    font-size: 3.5vw;
+    font-weight: 800;
+}
+
+#button-listing {
+    text-align: center;
+    font-size: 2.8vw;
+    box-shadow: 2px 2px 4px #000000;
+
+}
+
+
+
+#listing-features-icon {
+    text-align: center;
+    
+}
+
+#listing-icon-container {
+    max-height: 120px;
+    max-width: 120px;
+    text-align: center;
+    align-content: center;
+    font-weight: 900;
 }

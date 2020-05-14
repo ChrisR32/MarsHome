@@ -2,7 +2,8 @@ class ListingsController < ApplicationController
     before_action :set_listing, except: [:index, :new, :create]
     before_action :authenticate_user!, except: [:show]
     before_action :is_authorised, only: [:post, :pricing, :description, :photo_upload, :ammenities, :location, :update]
-  
+
+
     def index
       @listings = current_user.listings
     end
@@ -71,7 +72,7 @@ class ListingsController < ApplicationController
   end
 
   def listing_params
-    params.require(:listing).permit(:title, :description, :bed_room, :bath_room, :parking_space, :living_area, :air_conditioning, :heating, :yard, :smart_system, :price, :address_number, :address_street, :address_zone, :address_city, :active, :image)
+    params.require(:listing).permit(:title, :description, :bed_room, :bath_room, :parking_space, :living_area, :air_conditioning, :heating, :yard, :smart_system, :price, :address_number, :address_street, :address_zone, :address_city, :active, :image, :sold)
   end
   
 end

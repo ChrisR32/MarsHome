@@ -1,19 +1,14 @@
 
 <div class="row">
     <div class="col-md-4">
-        <div class="top-description">
-        <p>Added:</p>
-        </div>
         <br/>
         <div class="top-description">
-            <p><%= @listing.address_number %> <%= @listing.address_street %><br/>
-            <%= @listing.address_zone %><br/>
-            <%= @listing.address_city %></p>            
-        </div>
+        <p id="price-large"><%= number_to_currency(@listing.price, negative_format: "(%u%n)") %></p>
+        <%= render 'purchases/form' %>
         <br/>
+        </div>
         <div class="top-description">
-        <p> <%= @listing.price %></p>
-        <p class="btn btn-listing btn-block">Buy it now</p>
+        <p id="created-at-med">Listed <%= time_ago_in_words(@listing.created_at) %> ago</p> 
         </div>
     </div>
     <div class="col-md-8">
@@ -41,7 +36,9 @@
 <div class="row">
     <div class="col-md-12">  
             <div class="top-description-highlight">
-                <h1><%= @listing.title %></h1>
+                <h1 id="listing-title-large"><%= @listing.title %></h1>
+                <p id="address-large"><%= @listing.address_number %> <%= @listing.address_street %> <%= @listing.address_zone %> <%= @listing.address_city %></p>            
+
             </div>
     </div>
 </div>
@@ -50,103 +47,95 @@
             <div class="mid-description">
                 <p>
                 <div class="row">
-                    <div class="col-md-3">
-                        <div class="form-group">
-                            <%= @listing.living_area %> Type
+                    <div class="col-md-2">
+                        <div class="form-group" id="#listing-icon-container">
+                        <p id="listing-features-icon"><%= image_tag @listing.house_type_icon(@listing.living_area), style: 'height:100px;' %>
+                        <br/>
+                        <%= @listing.house_type_name(@listing.living_area) %></p>
+
                         </div>
                     </div>
-                    <div class="col-md-3">
-                        <div class="form-group">
-                            <%= @listing.bath_room %> Bathrooms
+                    <div class="col-md-2">
+                        <div class="form-group" id="#listing-icon-container">
+                        <p id="listing-features-icon"><%= image_tag "toilet.png", style: 'height:100px;' %>
+                            <br/>
+                            <%= pluralize(@listing.bath_room, "Bathroom") %></p>
                         </div>
                     </div>
-                    <div class="col-md-3">
-                        <div class="form-group">
-                            <%= @listing.bed_room %> Bedrooms
+                    <div class="col-md-2">
+                        <div class="form-group" id="#listing-icon-container">
+                        <p id="listing-features-icon"><%= image_tag "bed.png", style: 'height:100px;' %>
+                            <br/>
+                            <%= pluralize(@listing.bed_room, "Bedroom") %></p>
                         </div>
                     </div>
-                </div>
-                <%= @listing.smart_system %> <%= @listing.yard %> <%= @listing.heating %> <%= @listing.air_conditioning %>
+                        <% if @listing.air_conditioning == true %>
+                        <div class="col-md-2">
+                        <div class="form-group" id="#listing-icon-container">                        
+                         <p id="listing-features-icon"><%= image_tag "ac_bot.png", style: 'height:100px;' %>
+                            <br/>
+                            AC House Bot<br/>Enabled</p>                            
+                            </div>
+                    </div>
+                    <% end %>
+                    <% if @listing.heating == true %>
+                    <div class="col-md-2">
+                        <div class="form-group" id="#listing-icon-container">
+                        <p id="listing-features-icon"><%= image_tag "heat_bot.png", style: 'height:100px;' %>
+                            <br/>
+                            Heat Bot<br/>Enabled</p>
+                        </div>
+                    </div>
+                    <% end %>
+                    <% if @listing.yard == true %>
+                    <div class="col-md-2">
+                        <div class="form-group" id="#listing-icon-container">
+                        <p id="listing-features-icon"><%= image_tag "out_door.png", style: 'height:100px;' %>
+                            <br/>
+                            Outdoor<br/>Areas</p>
+                        </div>
+                    </div>
+                    <% end %>
+                    <% if @listing.smart_system == true %>
+                    <div class="col-md-2">
+                        <div class="form-group" id="#listing-icon-container">
+                        <p id="listing-features-icon"><%= image_tag "smt_home.png", style: 'height:100px;' %>
+                            <br/>
+                            Smart<br/>House</p>
+                        </div>
+                    </div>
+                    <% end %>
+                </div>                   
                 <br/>
                 <h2>Description</h2>
                 <%= @listing.description %>
                 </p>
-
-<p>
-        
-        
-                <form class="form-horizontal" method="post">
-                    <fieldset>
-                        <legend class="text-center header">Contact us</legend>
-
-                        <div class="form-group">
-                            <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user bigicon"></i></span>
-                            <div class="col-md-8">
-                                <input id="fname" name="name" type="text" placeholder="First Name" class="form-control">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user bigicon"></i></span>
-                            <div class="col-md-8">
-                                <input id="lname" name="name" type="text" placeholder="Last Name" class="form-control">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-envelope-o bigicon"></i></span>
-                            <div class="col-md-8">
-                                <input id="email" name="email" type="text" placeholder="Email Address" class="form-control">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-phone-square bigicon"></i></span>
-                            <div class="col-md-8">
-                                <input id="phone" name="phone" type="text" placeholder="Phone" class="form-control">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-pencil-square-o bigicon"></i></span>
-                            <div class="col-md-8">
-                                <textarea class="form-control" id="message" name="message" placeholder="Enter your massage for us here. We will get back to you within 2 business days." rows="7"></textarea>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-12 text-center">
-                                <button type="submit" class="btn btn-primary btn-lg">Submit</button>
-                            </div>
-                        </div>
-                    </fieldset>
-                </form>
             </div>
-</p>
-            
-    </div>
+        </div>
+
+
     <div class="col-md-3">  
             <div class="mid-description-profile">
                 <p>
-                <h2>Listed by</h2>
-                <%= @listing.user.profile_picture %>
-                <%= @listing.user.first_name %> <%= @listing.user.last_name %>
-                Member Since <%= @listing.user.date_joined %>
+                <%= image_tag avatar_url(@listing.user), class: "img-circle avatar-large"%>
+                <h2><%= @listing.user.first_name %> <%= @listing.user.last_name %></h2>
+                Member Since <%= @listing.user.created_at.strftime(" %B %Y") %>
                 </p>
             </div>
-            <p class="btn btn-listing btn-block">Contact</p>
-            <p class="btn btn-listing btn-block">View Profile</p>
+                <p class="btn btn-listing btn-block">Contact</p>
+                <p class="btn btn-listing btn-block">View Profile</p>
             <div class="mid-description-profile">
-            <p> 
-            Users Rating:
-            <p class="fa fa-star x1"><p class="fa fa-star x1"><p class="fa fa-star x1"><p class="fa fa-star x1"><p class="fa fa-star x1">
-            </p>
+                <p> 
+                Users Rating:
+                <p class="fa fa-star x1"><p class="fa fa-star x1"><p class="fa fa-star x1"><p class="fa fa-star x1"><p class="fa fa-star x1">
+                </p>
             </div>
             <p class="btn btn-listing btn-block">View Feedback</p>
             <div class="mid-description-profile">
-            <p> 
-            Users Verification:
-            <p class="fa fa-envelope fa-x5"><p class="fa fa-phone fa-x5">
-            </p>
+                <p> 
+                Users Verification:
+                <p class="fa fa-envelope fa-x5"><p class="fa fa-phone fa-x5">
+                </p>
             </div>
     </div>
-</div>
+    </div>
