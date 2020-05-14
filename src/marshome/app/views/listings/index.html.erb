@@ -1,17 +1,21 @@
 <div class="row">
     <div class="col-md-3">
-        <ul class="sidebar-list">
+    <%= image_tag "listings.png" %>
+        <ul class="panel-default-search">
             <li class="sidebar-item"><%= link_to "Your Listings", listings_path, class: "sidebar-link active" %></li>
-            <li class="sidebar-item"><%= link_to "Sold Listings", listings_path, class: "sidebar-link active" %></li>
+            <li class="sidebar-item"><%= link_to "Sold Listings", your_sold_path, class: "sidebar-link" %></li>
+            <li class="sidebar-item"><%= link_to "Purchased Listings", your_purchases_path, class: "sidebar-link" %></li>
          </ul>
     </div>
     <div class="col-md-9">
         <div class="panel panel-default">
             <div class="panel-heading">
-                Listings
+                <h1>Your Active Listings</h1>
             </div>
-            <div class="panel-body" id="mid-description" >
+
                 <% @listings.each do |listing| %>
+                <% if listing.active == true && listing.sold != true %>
+                <div class="panel-default-search">
                     <div class="row" >
                         <div class="col-md-2" >
                             <div class="image_list_thumb"><%= image_tag listing.default_photo %></div>
@@ -20,12 +24,45 @@
                             <h4><%= listing.title %>
                         </div>
                         <div class="col-md-3 right">
-                            <%= link_to "Edit", post_listing_path(listing), class: "btn btn-form"%>
+                            <%= link_to "Edit", post_listing_path(listing), class: "btn btn-form-edit btn-block"%>
+                            <br/>
+                            <%= link_to "Delete", post_listing_path(listing), class: "btn btn-form-delete btn-block"%>
+                            
                         </div>
                     </div>
-                    <hr/>
+                    </div>
+                    <% else %>
+                    <% end %>
                 <% end %>
+            
+        </div>
+    
+    <div class="panel panel-default">
+            <div class="panel-heading">
+                <h1>Your Draft Listings</h1>
             </div>
+
+                <% @listings.each do |listing| %>
+                <% if listing.active != true && listing.sold != true %>
+                <div class="panel-default-search">
+                    <div class="row" >
+                        <div class="col-md-2" >
+                            <div class="image_list_thumb"><%= image_tag listing.default_photo %></div>
+                        </div>
+                        <div class="col-md-7" >
+                            <h4><%= listing.title %>
+                        </div>
+                        <div class="col-md-3 right">
+                            <%= link_to "Edit", post_listing_path(listing), class: "btn btn-form-edit btn-block"%>
+                            <br/>
+                            <%= link_to "Delete", post_listing_path(listing), class: "btn btn-form-delete btn-block"%>
+                        </div>
+                    </div>
+                    </div>
+                    <% else %>
+                    <% end %>
+                <% end %>
+            
         </div>
     </div>
 </div>

@@ -18,4 +18,7 @@ Rails.application.routes.draw do
     resources :photos, only: [:create, :destroy]
     resources :purchases, only: [:create]
   end
+
+  get '/your_purchases' => 'purchases#your_purchases'
+  get '/your_sold' => 'purchases#your_sold'
 end
