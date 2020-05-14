@@ -178,6 +178,16 @@ element.style {
     background-color: #00a699;
 }
 
+.btn.btn-form-edit {
+    border: 1px solid green;
+    background-color: green;
+}
+
+.btn.btn-form-delete {
+    border: 1px solid #a62700;
+    background-color: #a62700;
+}
+
 .btn.btn-form:active {
     outline: none;
     border-color: #066165;
@@ -280,8 +290,19 @@ element.style {
     border: 10px solid #fff; 
 }
 
+.panel-default-search {
+    width: 100%;
+    height: auto;
+    background-color: white;
+    border-radius: 25px;
+    border: 20px solid white;
+    margin-top: 12px;
+    margin-bottom: 12px;
+    box-shadow: 2px 2px 4px #000000;;
+}
+
 .panel-default .panel-heading {
-    color: #ffff;
+    color: #484848;
     background: none;
     font-size: 18px;
     font-weight: 400;
@@ -472,10 +493,10 @@ element.style {
 // carousel
 
 h4 {
-    margin: 20px 10px 10px;
+
 }
 p {
-    margin: 10px;
+
 }
 
 

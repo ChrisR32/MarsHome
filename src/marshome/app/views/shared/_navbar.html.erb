@@ -12,8 +12,10 @@
 
           
             <a class="navbar-brand nav_logo" href="#" >
+
             <%# <img src="/brand/marsbnb10.png" height="40" alt="" > %>
-            <img src="/slide/top_logo.png" height="40" alt="" >
+            <img src="/slide/top_logo.png" height="160px" alt="" >
+            
             </a>
 
         </div>
@@ -43,32 +45,32 @@
               <%= current_user.first_name %> <%= current_user.last_name %> <span class="caret"></span></a>
               <ul class="dropdown-menu">
 
-                <%# needs proper link %>
+        
                 <li>
-                <%= link_to new_user_registration_path do %>
+                <%= link_to listings_path do %>
                    <%= image_tag("/brand/manage2.png", class: "img-circle avatar_small", style: 'display:inline' ) %>
-                   <%= "Manage Listings" %>
+                   <%= "Your Listings" %>
                 <% end %>                
                 </li>
-                <%# needs proper link %>
+  
                 <li>
                 <%= link_to new_listing_path do %>
                    <%= image_tag("/brand/list2.png", class: "img-circle avatar_small", style: 'display:inline' ) %>
-                   <%= "Create Listing" %>
+                   <%= "New Listing" %>
                 <% end %>                
                 </li>
-                <%# needs proper link %>
+ 
                 <li>
-                <%= link_to edit_user_registration_path do %>
+                <%= link_to your_purchases_path do %>
                    <%= image_tag("/brand/dates2.png", class: "img-circle avatar_small", style: 'display:inline' ) %>
-                   <%= "Your Reservations" %>
+                   <%= "Purchased" %>
                 <% end %>                
                 </li>
-                <%# needs proper link %>
+ 
                 <li>
-                <%= link_to edit_user_registration_path do %>
+                <%= link_to your_sold_path do %>
                    <%= image_tag("/brand/trip.png", class: "img-circle avatar_small", style: 'display:inline' ) %>
-                   <%= "Your Trips" %>
+                   <%= "Sold" %>
                 <% end %>                
                 </li>
 

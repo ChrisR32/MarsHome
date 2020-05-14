@@ -23,6 +23,14 @@ class PurchasesController < ApplicationController
     redirect_to listing
     end
 
+    def your_purchases
+        @your_purchases = current_user.purchases.order(created_at: :asc)
+    end
+
+    def your_sold
+        @listings = current_user.listings
+    end
+
     private
         def purchase_params
             params.require(:purchase).permit(:term)

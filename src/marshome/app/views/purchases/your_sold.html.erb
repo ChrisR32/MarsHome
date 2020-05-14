@@ -1,0 +1,49 @@
+<div class="row">
+    <div class="col-md-3">
+<%= image_tag "listings.png" %>
+
+        <ul class="panel-default-search">
+            <li class="sidebar-item"><%= link_to "Your Listings", listings_path, class: "sidebar-link" %></li>
+            <li class="sidebar-item"><%= link_to "Sold Listings", your_sold_path, class: "sidebar-link active" %></li>
+            <li class="sidebar-item"><%= link_to "Purchased Listings", your_purchases_path, class: "sidebar-link" %></li>
+         </ul>
+    </div>
+    <div class="col-md-9">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h1>Your Sold Listings</h1>
+            </div>
+
+           
+                <% @listings.each do |listing| %>
+                    <% listing.purchases.each do |purchase| %>
+                 <div class="panel-default-search">
+                    <div class="row" >
+                        <div class="col-md-2" >
+                        <br/>
+                            <div class="image_list_thumb"><%= image_tag purchase.listing.default_photo %></div>
+                        </div>
+                        <div class="col-md-9" >
+                            <h3><%= link_to purchase.listing.title, listing_path(purchase.listing) %></h3>
+                            <p><%= purchase.listing.address_number %> <%= purchase.listing.address_street %> <%= purchase.listing.address_zone %> <%= purchase.listing.address_city %></p>
+                            <h3><%= number_to_currency(purchase.listing.price, negative_format: "(%u%n)") %></h3>
+                            <p>Purchased on <%= purchase.created_at.strftime("%D") %></p>
+                            <p>Purchased by <%= link_to user_path(purchase.user) do %>
+                            <%= purchase.user.first_name %> <%= purchase.user.last_name %></p>
+                            <% end %>
+                        
+                        </div>
+                          
+                        </div>
+                          
+                    </div>
+                     <% end %>
+                            <% end %>
+                </div>      
+        
+               
+            
+        </div>
+
+    </div>
+</div>
