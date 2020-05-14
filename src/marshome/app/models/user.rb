@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :listings
   has_many :rating_totals
   has_many :messages
+  has_many :purchases
   # has_one :phones
   # has_one :emails
   # has_one :profile_pictures
