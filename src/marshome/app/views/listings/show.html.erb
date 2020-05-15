@@ -1,15 +1,27 @@
 
 <div class="row">
+    <div class="col-md-12">  
+            <div class="top-description-highlight">
+                <h1 id="listing-title-large"><%= @listing.title %></h1>
+                <p id="address-large"><%= @listing.address_number %> <%= @listing.address_street %> <%= @listing.address_zone %> <%= @listing.address_city %></p>            
+
+            </div>
+    </div>
+</div>
+
+<div class="row">
     <div class="col-md-4">
         <br/>
+        <div class="top-description">
+        <p id="created-at-med">Listed <%= time_ago_in_words(@listing.created_at) %> ago</p> 
+        </div>
+        
         <div class="top-description">
         <p id="price-large"><%= number_to_currency(@listing.price, negative_format: "(%u%n)") %></p>
         <%= render 'purchases/form' %>
         <br/>
         </div>
-        <div class="top-description">
-        <p id="created-at-med">Listed <%= time_ago_in_words(@listing.created_at) %> ago</p> 
-        </div>
+        
     </div>
     <div class="col-md-8">
         <div class="container">
@@ -33,15 +45,7 @@
         </div> 
     </div>
 <br/>
-<div class="row">
-    <div class="col-md-12">  
-            <div class="top-description-highlight">
-                <h1 id="listing-title-large"><%= @listing.title %></h1>
-                <p id="address-large"><%= @listing.address_number %> <%= @listing.address_street %> <%= @listing.address_zone %> <%= @listing.address_city %></p>            
 
-            </div>
-    </div>
-</div>
 <div class="row">
     <div class="col-md-9">  
             <div class="mid-description">

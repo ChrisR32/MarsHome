@@ -58,6 +58,12 @@ class ListingsController < ApplicationController
       redirect_back(fallback_location: request.referer)
     end
   
+  def destroy
+      Listing.find(params[:id]).destroy
+      flash[:notice] = "Listing Deleted"
+        redirect_to listings_path
+  end
+
   private_methods
   def set_listing
     @listing = Listing.find(params[:id])

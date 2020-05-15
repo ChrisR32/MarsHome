@@ -21,19 +21,28 @@
                             <div class="image_list_thumb"><%= image_tag listing.default_photo %></div>
                         </div>
                         <div class="col-md-7" >
-                            <h4><%= listing.title %>
+                            <h3><%= listing.title %></h3>
+                            <p><%= listing.address_number %> <%= listing.address_street %> <%= listing.address_zone %> <%= listing.address_city %></p>
+                            <p>Created on: <%= listing.created_at.strftime("%D") %><br/></p><h3>Listed Price: <%= number_to_currency(listing.price, negative_format: "(%u%n)") %></h3>
                         </div>
                         <div class="col-md-3 right">
+                            <%= link_to "View", listing_path(listing), class: "btn btn-form-view btn-block"%>
+                            <br/>
                             <%= link_to "Edit", post_listing_path(listing), class: "btn btn-form-edit btn-block"%>
                             <br/>
-                            <%= link_to "Delete", post_listing_path(listing), class: "btn btn-form-delete btn-block"%>
-                            
+                            <%= form_with model: listing, local: true, method: "delete" do |form| %>
+
+                            <%= submit_tag "delete", class: "btn btn-form-delete btn-block"%>
+                         </div>
+                  <% end %>
+         
                         </div>
                     </div>
-                    </div>
-                    <% else %>
+                        <% else %>
                     <% end %>
                 <% end %>
+                   
+                
             
         </div>
     
@@ -55,14 +64,21 @@
                         <div class="col-md-3 right">
                             <%= link_to "Edit", post_listing_path(listing), class: "btn btn-form-edit btn-block"%>
                             <br/>
-                            <%= link_to "Delete", post_listing_path(listing), class: "btn btn-form-delete btn-block"%>
-                        </div>
-                    </div>
-                    </div>
-                    <% else %>
+                            <%= form_with model: listing, local: true, method: "delete", data: {confirm: "Are you sure?"}  do |form| %>
+
+                            <%= submit_tag "delete", class: "btn btn-form-delete btn-block"%>
+                         </div>
+                  <% end %>
+                </div>
+                </div>
+           <% else %>
                     <% end %>
                 <% end %>
             
+                        
+                
+                    </div>
+                  
         </div>
     </div>
 </div>

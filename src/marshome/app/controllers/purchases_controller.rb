@@ -15,6 +15,7 @@ class PurchasesController < ApplicationController
                 @purchase.price = listing.price
                 @purchase.save
                 listing.update_attribute(:sold, true)
+                listing.update_attribute(:active, false)
                 flash[:notice] = "You have purchased this property"
             else
                 flash[:alert] = "Unable to purchase without accepting the Terms and Conditions." 
