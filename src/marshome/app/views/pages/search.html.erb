@@ -1,0 +1,96 @@
+<div class="row">
+    <div class="col-md-4">
+        <ul class="panel-default-search">
+<%= search_form_for @search, url: search_path do |f| %>
+ <div class="sidebar-item">
+            <label>Price range:</label>
+        <br/>
+            <label>Min Price:</label>
+            
+            <%= f.text_field :price_gteq, class: "form-control"%>
+            
+<br/>
+            <label>Max Price:</label>
+            <%= f.text_field :price_lteq, class: "form-control"%>
+</div>
+<br/>
+ <div class="sidebar-item">
+            <%= check_box_tag "q[living_area_eq_any][]", "1" %> Rural Pod Small<br/>
+
+
+            <%= check_box_tag "q[living_area_eq_any][]", "2" %> Rural Pod Large<br/>
+
+
+            <%= check_box_tag "q[living_area_eq_any][]", "3" %> Rural Classic Settler<br/>
+
+ 
+            <%= check_box_tag "q[living_area_eq_any][]", "4" %> Space Station Quarters<br/>
+
+            <%= check_box_tag "q[living_area_eq_any][]", "5" %> City Unit<br/>
+
+            <%= check_box_tag "q[living_area_eq_any][]", "6" %> City House<br/>
+</div>
+<br/>
+ <div class="sidebar-item">
+                <label>Bed Rooms</label>
+                 <%= f.select :bed_room_gteq, [["1", 1], ["2", 2], ["3", 3], ["4", 4], ["5", 5], ["6+", 6]],id: "bed_room", prompt: "Select...", class: "form-control" %>
+            
+</div>
+<br/>
+ <div class="sidebar-item">
+                <label>Bath Rooms</label>
+                <%= f.select :bath_room_gteq, [["1", 1], ["2", 2], ["3", 3], ["4+", 4]], id: "bath_room", prompt: "Select...", class: "form-control" %>
+</div>
+<br/>
+ <div class="sidebar-item">
+            <%= check_box_tag "q[air_conditioning_eq]", true %> Air Conditioning<br/>
+  
+
+            <%= check_box_tag "q[heating_eq]", true %> Heating<br/>
+  
+    
+            <%= check_box_tag "q[yard_eq]", true %> Outdoor area<br/>
+     
+     
+            <%= check_box_tag "q[smart_system_eq]", true %> Smart System
+</div>
+<br/>
+ <div class="sidebar-item">
+        <%= link_to "Reset", search_path, class: "btn btn-form-edit"%>   <%= f.submit "Update", class: "btn btn-form-view" %> 
+  
+    <% end %>
+</div>
+
+</div>
+
+    <div class="col-md-8">
+        <div class="panel-default">
+            <div class="panel-heading">
+           
+                <h1>Listings</h1>
+            </div>
+    <% @arrListings.each do |listing| %>
+      <div class="panel-default-search">
+  <div class="panel-body">
+   <div class="col-md-7">
+  <h4><%= link_to listing.title, listing %></h4>
+  <p>Listed <%= time_ago_in_words(listing.created_at) %> ago | Listed by <%= link_to user_path(listing.user) do %>
+  <%= listing.user.first_name %> <%= listing.user.last_name %></p>
+  <% end %>
+                <p>Located in <%= listing.address_city %></p>
+                <p id="search-med"><%= number_to_currency(listing.price, negative_format: "(%u%n)") %></p>
+            <p><%= listing.house_type_name(listing.living_area) %> | <%= pluralize(listing.bath_room, "Bathroom") %> | <%= pluralize(listing.bed_room, "Bedroom") %></p>
+         </div>
+   <div class="col-md-5 right">
+            <%= link_to (image_tag listing.default_photo), listing %>
+                </div>
+               </div> 
+               
+            </div>
+        
+        <% end %>
+    </div>
+    
+</div> 
+</div>
+</div>

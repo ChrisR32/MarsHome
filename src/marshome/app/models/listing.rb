@@ -1,6 +1,6 @@
 class Listing < ApplicationRecord
   belongs_to :user
-  has_many :photos
+  has_many :photos, dependent: :destroy
   has_many :purchases
 
   # validates :title, presence: true, length: {maximum: 50}

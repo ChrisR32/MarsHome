@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  root 'pages#home'
+  # root 'pages#home'
+  root 'pages#search'
   devise_for :users,
              path: '',
              path_names: {sign_in: 'login', sign_out: 'logout', edit: 'profile', sign_up: 'registration'},
@@ -21,4 +22,5 @@ Rails.application.routes.draw do
 
   get '/your_purchases' => 'purchases#your_purchases'
   get '/your_sold' => 'purchases#your_sold'
+  get 'search' => 'pages#search'
 end
