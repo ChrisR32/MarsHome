@@ -13,16 +13,21 @@
                                 <div class="col-md-1">
                                     <%= image_tag avatar_url(other), class: "avatar_medium" %>
                                 </div>
-                                <div class="col-md-2">
+                                <div class="col-md-3">
                                     <%= other.first_name %> <%= other.last_name %>
                                     <br/>
                                     <%= time_ago_in_words(conversation.messages.last.message_time) %> ago
                                 </div>
                                 <div class="col-md-8">
                                     <%= conversation.messages.last.context %>
+                                    
                                 </div>
+                              
                             <% end %>
+                            
                         </div>
+                        
+                        <br/>
                     <% end %>
                     <% end %>
                    
