@@ -126,7 +126,9 @@
                 Member Since <%= @listing.user.created_at.strftime(" %B %Y") %>
                 </p>
             </div>
-                <p class="btn btn-listing btn-block">Contact</p>
+                <% if current_user && current_user != @user %>
+                <p><%= link_to "Contact", conversations_path(sender_id: current_user, recipient_id: @listing.user), method: :post, class: "btn btn-listing btn-block" %></p>
+                <% end %>
                 <p class="btn btn-listing btn-block">View Profile</p>
             <div class="mid-description-profile">
                 <p> 

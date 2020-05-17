@@ -80,6 +80,12 @@
                 </li>
 
                 <li role="separator" class="divider"></li>
+                                <li>
+                <%= link_to conversations_path do %>
+                   <%= image_tag("/brand/edit.png", class: "img-circle avatar_small", style: 'display:inline' ) %>
+                   <%= "Messages" %>
+                <% end %>                
+                </li>
                 <li>
                 <%= link_to edit_user_registration_path do %>
                    <%= image_tag("/brand/edit.png", class: "img-circle avatar_small", style: 'display:inline' ) %>
