@@ -73,3 +73,5 @@ gem 'aws-sdk'
 gem "pg", "~> 1.2"
 gem "figaro"
 gem 'ransack'
+gem 'execjs' 
+gem 'redis'

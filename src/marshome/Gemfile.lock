@@ -50,7 +50,7 @@ GEM
     autoprefixer-rails (9.7.6)
       execjs
     aws-eventstream (1.1.0)
-    aws-partitions (1.315.0)
+    aws-partitions (1.316.0)
     aws-sdk (3.0.1)
       aws-sdk-resources (~> 3)
     aws-sdk-accessanalyzer (1.6.0)
@@ -128,7 +128,7 @@ GEM
     aws-sdk-clouddirectory (1.23.0)
       aws-sdk-core (~> 3, >= 3.71.0)
       aws-sigv4 (~> 1.1)
-    aws-sdk-cloudformation (1.34.0)
+    aws-sdk-cloudformation (1.35.0)
       aws-sdk-core (~> 3, >= 3.71.0)
       aws-sigv4 (~> 1.1)
     aws-sdk-cloudfront (1.27.0)
@@ -212,7 +212,7 @@ GEM
     aws-sdk-connectparticipant (1.2.0)
       aws-sdk-core (~> 3, >= 3.71.0)
       aws-sigv4 (~> 1.1)
-    aws-sdk-core (3.95.0)
+    aws-sdk-core (3.96.0)
       aws-eventstream (~> 1, >= 1.0.2)
       aws-partitions (~> 1, >= 1.239.0)
       aws-sigv4 (~> 1.1)
@@ -271,7 +271,7 @@ GEM
     aws-sdk-ec2instanceconnect (1.5.0)
       aws-sdk-core (~> 3, >= 3.71.0)
       aws-sigv4 (~> 1.1)
-    aws-sdk-ecr (1.28.0)
+    aws-sdk-ecr (1.29.0)
       aws-sdk-core (~> 3, >= 3.71.0)
       aws-sigv4 (~> 1.1)
     aws-sdk-ecs (1.61.0)
@@ -337,7 +337,7 @@ GEM
     aws-sdk-globalaccelerator (1.17.0)
       aws-sdk-core (~> 3, >= 3.71.0)
       aws-sigv4 (~> 1.1)
-    aws-sdk-glue (1.54.0)
+    aws-sdk-glue (1.55.0)
       aws-sdk-core (~> 3, >= 3.71.0)
       aws-sigv4 (~> 1.1)
     aws-sdk-greengrass (1.30.0)
@@ -964,7 +964,7 @@ GEM
       sassc (>= 2.0.0)
     builder (3.2.4)
     byebug (11.1.3)
-    capybara (3.32.1)
+    capybara (3.32.2)
       addressable
       mini_mime (>= 0.1.3)
       nokogiri (~> 1.8)
@@ -1031,7 +1031,7 @@ GEM
     mimemagic (0.3.5)
     mini_mime (1.0.2)
     mini_portile2 (2.4.0)
-    minitest (5.14.0)
+    minitest (5.14.1)
     msgpack (1.3.3)
     multi_json (1.14.1)
     multi_xml (0.6.0)
@@ -1103,6 +1103,7 @@ GEM
     rb-fsevent (0.10.4)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
+    redis (4.1.3)
     regexp_parser (1.7.0)
     responders (3.0.0)
       actionpack (>= 5.0)
@@ -1176,6 +1177,7 @@ DEPENDENCIES
   chromedriver-helper
   coffee-rails (~> 4.2)
   devise (~> 4.2)
+  execjs
   figaro
   jbuilder (~> 2.5)
   jquery-rails
@@ -1188,6 +1190,7 @@ DEPENDENCIES
   rails (~> 5.2.4, >= 5.2.4.2)
   rails-ujs
   ransack
+  redis
   sass-rails (~> 5.0)
   selenium-webdriver
   spring

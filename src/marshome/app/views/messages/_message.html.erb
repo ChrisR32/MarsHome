@@ -1,0 +1,12 @@
+<div class="panel">
+    <div class="panel-body">
+    <%= image_tag avatar_url(message.user), class: "avatar_medium"%>
+    <strong><%= message.user.first_name %> <%= message.user.last_name %></strong>
+    <span class="pull-right"><%= time_ago_in_words(message.message_time) %></span>
+    <br/>
+    <div id="chat">
+    <%= message.context %>
+    </div>
+    </div>
+</div>
+<%= javascript_include_tag 'cable', 'data-turbolinks-track': 'reload' %>
