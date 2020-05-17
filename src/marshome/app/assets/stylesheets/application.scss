@@ -579,6 +579,13 @@ p {
     margin-bottom: 6px;
 }
 
+.sold {
+    width: 100%;
+    height: auto;
+    padding-top: 28px;
+    margin-bottom: 6px;
+}
+
 .top-description-highlight {
     width: 100%;
     height: auto;
@@ -690,5 +697,23 @@ p {
     margin-top: 12px;
     margin-bottom: 12px;
     box-shadow: 2px 2px 4px #000000;;
+}
 
+.image_list_col {
+    height: 170px;
+}
+
+.panel-default-height {
+    width: 100%;
+    height: auto;
+    background-color: white;
+    border-radius: 25px;
+    border: 20px solid white;
+    margin-top: 12px;
+    margin-bottom: 12px;
+    box-shadow: 2px 2px 4px #000000;
+}
+
+.height-control {
+    height: 50px;
 }

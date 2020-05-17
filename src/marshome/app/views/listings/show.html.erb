@@ -15,10 +15,16 @@
         <div class="top-description">
         <p id="created-at-med">Listed <%= time_ago_in_words(@listing.created_at) %> ago</p> 
         </div>
-        
+        <% if @listing.sold != true %>
         <div class="top-description">
         <p id="price-large"><%= number_to_currency(@listing.price, negative_format: "(%u%n)") %></p>
         <%= render 'purchases/form' %>
+        
+<% else %>
+<div class="sold">
+<%= image_tag "/logos/sold.png" %>
+
+<% end %>
         <br/>
         </div>
         
@@ -52,7 +58,7 @@
                 <p>
                 <div class="row">
                     <div class="col-md-2">
-                        <div class="form-group" id="#listing-icon-container">
+                        <div class="form-group text-center" id="#listing-icon-container">
                         <p id="listing-features-icon"><%= image_tag @listing.house_type_icon(@listing.living_area), style: 'height:100px;' %>
                         <br/>
                         <%= @listing.house_type_name(@listing.living_area) %></p>
@@ -60,14 +66,14 @@
                         </div>
                     </div>
                     <div class="col-md-2">
-                        <div class="form-group" id="#listing-icon-container">
+                        <div class="form-group text-center" id="#listing-icon-container">
                         <p id="listing-features-icon"><%= image_tag "toilet.png", style: 'height:100px;' %>
                             <br/>
                             <%= pluralize(@listing.bath_room, "Bathroom") %></p>
                         </div>
                     </div>
                     <div class="col-md-2">
-                        <div class="form-group" id="#listing-icon-container">
+                        <div class="form-group text-center" id="#listing-icon-container">
                         <p id="listing-features-icon"><%= image_tag "bed.png", style: 'height:100px;' %>
                             <br/>
                             <%= pluralize(@listing.bed_room, "Bedroom") %></p>
@@ -75,7 +81,7 @@
                     </div>
                         <% if @listing.air_conditioning == true %>
                         <div class="col-md-2">
-                        <div class="form-group" id="#listing-icon-container">                        
+                        <div class="form-group text-center" id="#listing-icon-container">                        
                          <p id="listing-features-icon"><%= image_tag "ac_bot.png", style: 'height:100px;' %>
                             <br/>
                             AC House Bot<br/>Enabled</p>                            
@@ -84,7 +90,7 @@
                     <% end %>
                     <% if @listing.heating == true %>
                     <div class="col-md-2">
-                        <div class="form-group" id="#listing-icon-container">
+                        <div class="form-group text-center" id="#listing-icon-container">
                         <p id="listing-features-icon"><%= image_tag "heat_bot.png", style: 'height:100px;' %>
                             <br/>
                             Heat Bot<br/>Enabled</p>
@@ -93,7 +99,7 @@
                     <% end %>
                     <% if @listing.yard == true %>
                     <div class="col-md-2">
-                        <div class="form-group" id="#listing-icon-container">
+                        <div class="form-group text-center" id="#listing-icon-container">
                         <p id="listing-features-icon"><%= image_tag "out_door.png", style: 'height:100px;' %>
                             <br/>
                             Outdoor<br/>Areas</p>
@@ -102,7 +108,7 @@
                     <% end %>
                     <% if @listing.smart_system == true %>
                     <div class="col-md-2">
-                        <div class="form-group" id="#listing-icon-container">
+                        <div class="form-group text-center" id="#listing-icon-container">
                         <p id="listing-features-icon"><%= image_tag "smt_home.png", style: 'height:100px;' %>
                             <br/>
                             Smart<br/>House</p>
@@ -119,29 +125,22 @@
 
 
     <div class="col-md-3">  
-            <div class="mid-description-profile">
+            <div class="mid-description-profile text-center">
                 <p>
-                <%= image_tag avatar_url(@listing.user), class: "img-circle avatar-large"%>
+                <%= image_tag avatar_url(@listing.user), class: "avatar-large"%>
                 <h2><%= @listing.user.first_name %> <%= @listing.user.last_name %></h2>
                 Member Since <%= @listing.user.created_at.strftime(" %B %Y") %>
                 </p>
             </div>
-                <% if current_user && current_user != @user %>
-                <p><%= link_to "Contact", conversations_path(sender_id: current_user, recipient_id: @listing.user), method: :post, class: "btn btn-listing btn-block" %></p>
-                <% end %>
-                <p class="btn btn-listing btn-block">View Profile</p>
-            <div class="mid-description-profile">
-                <p> 
-                Users Rating:
-                <p class="fa fa-star x1"><p class="fa fa-star x1"><p class="fa fa-star x1"><p class="fa fa-star x1"><p class="fa fa-star x1">
-                </p>
-            </div>
-            <p class="btn btn-listing btn-block">View Feedback</p>
-            <div class="mid-description-profile">
-                <p> 
-                Users Verification:
-                <p class="fa fa-envelope fa-x5"><p class="fa fa-phone fa-x5">
-                </p>
-            </div>
+              <% if current_user != @listing.user %>
+                <p><%= link_to "Send Message", conversations_path(sender_id: current_user.id, recipient_id: @listing.user.id), method: :post, class: "btn btn-form-edit btn-block" %></p>
+                <p><%= link_to "View Profile", user_path(@listing.user.id), class: "btn btn-form-view btn-block" %></p>
+             <% else %>
+<p><%= link_to "My Messages", conversations_path, method: :get, class: "btn btn-form-edit btn-block" %></p>
+</p>
+      <p><%= link_to "View My Profile", user_path(current_user.id), class: "btn btn-form-view btn-block" %></p>
+<% end %>
+
+  
     </div>
     </div>

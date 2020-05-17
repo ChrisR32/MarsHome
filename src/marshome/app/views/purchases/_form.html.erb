@@ -1,7 +1,9 @@
 
-<%= form_for([@listing, @listing.purchases.new]) do |f| %>
-<%= f.check_box :term %> I agree to purchase this property and have read and understood the Terms and Conditions  
-<br/>
-<br/>
-<%= f.submit "Purchase", class: "btn btn-listing btn-block" %>
-<% end %>
+
+    <%= form_for([@listing, @listing.purchases.new]) do |f| %>
+        <%= f.check_box :term %> I agree to purchase this property and have read and understood the Terms and Conditions  
+        <br/>
+        <br/>
+        <%= f.submit "Purchase", class: "btn btn-form-edit btn-block" %>
+    <% end %>
+

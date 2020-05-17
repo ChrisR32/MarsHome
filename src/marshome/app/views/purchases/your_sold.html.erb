@@ -19,22 +19,28 @@
                     <% listing.purchases.each do |purchase| %>
                  <div class="panel-default-search">
                     <div class="row" >
-                        <div class="col-md-2" >
-                        <br/>
-                            <div class="image_list_thumb"><%= image_tag purchase.listing.default_photo %></div>
+                        <div class="col-md-3" >
+                            <br/>
+                            <div class="image_list"><%= image_tag purchase.listing.default_photo %></div>
                         </div>
-                        <div class="col-md-9" >
+                        <div class="col-md-6" >
                             <h3><%= link_to purchase.listing.title, listing_path(purchase.listing) %></h3>
                             <p><%= purchase.listing.address_number %> <%= purchase.listing.address_street %> <%= purchase.listing.address_zone %> <%= purchase.listing.address_city %></p>
                             <h3><%= number_to_currency(purchase.listing.price, negative_format: "(%u%n)") %></h3>
-                            <p>Purchased on <%= purchase.created_at.strftime("%D") %></p>
-                            <p>Purchased by <%= link_to user_path(purchase.user) do %>
+                            <p>Purchased on <%= purchase.created_at.strftime("%D") %>  |  Purchased by <%= link_to user_path(purchase.user) do %>
                             <%= purchase.user.first_name %> <%= purchase.user.last_name %></p>
                             <% end %>
-                        
                         </div>
-                          
-                        </div>
+                        <div class="col-md-3 right">
+                            <div>
+                               
+                                <%= link_to "Contact the buyer", conversations_path(sender_id: current_user.id, recipient_id: purchase.user.id), method: :post, class: "btn btn-form-view btn-block"%>
+                                <br/>
+                                <%= link_to "View Buyers Profile", user_path(purchase.user), class: "btn btn-form-edit btn-block"%>
+                            </div>
+                            
+                        </div>  
+                    </div>
                           
                     </div>
                      <% end %>
