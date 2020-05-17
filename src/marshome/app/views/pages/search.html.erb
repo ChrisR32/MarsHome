@@ -74,6 +74,7 @@
                 <h1>Listings</h1>
             </div>
     <% @arrListings.each do |listing| %>
+    <% if listing.sold != true %>
       <div class="panel-default-search">
   <div class="panel-body">
    <div class="col-md-7">
@@ -91,7 +92,8 @@
                </div> 
                
             </div>
-        
+        <% else %>
+        <% end %>
         <% end %>
     </div>
     

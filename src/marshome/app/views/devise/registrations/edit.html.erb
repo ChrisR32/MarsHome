@@ -7,8 +7,7 @@
 
     <%= image_tag avatar_url(@user), class: "avatar_full" %></li>
 <li class="sidebar-item">
-      <li class="sidebar-item"><%= link_to "Edit Profile", edit_user_registration_path, class: "btn btn-default_selected" %></li>
-      <%= link_to "View My Profile", user_path(current_user.id), class: "btn btn-default active" %>
+      <%= link_to "View My Profile", user_path(current_user.id), class: "btn btn-form-edit btn-block" %>
     </ul>
     </div>
     <div class="col-md-9 text-center">

@@ -1,28 +1,57 @@
-<div class="row">
-    <div class="col-md-3">
-        <div class="center">
+
+<div class="col-md-12">
+<div class="panel-default-search">
+
+    <div class="row">
+        <div class="col-md-3 text-center">
             <%= image_tag avatar_url(@user), class: "avatar_full" %>
-            
-            <% if current_user && current_user != @user %>
-                <%= link_to "Send Message", conversations_path(sender_id: current_user.id, recipient_id: @user.id), method: :post, class: "btn btn-default" %>
+            <br/>
+            <br/>
+             <% if current_user != @user %>
+                <p><%= link_to "Send Message", conversations_path(sender_id: current_user.id, recipient_id: @user.id), method: :post, class: "btn btn-form-edit btn-block" %></p>
+             <% else %>
+                   <p class="sidebar-item"><%= link_to "Edit Profile", edit_user_registration_path, class: "btn btn-form-view btn-block" %></li>
+
+                <p><%= link_to "My Messages", conversations_path, method: :get, class: "btn btn-form-edit btn-block" %></p>
             <% end %>
-
-            <br/><br/>
         </div>
-        <div class="panel panel-default">
-            <div class="panel-heading">Accout Verification</div>
-            <div class="panel-body">
-            Email Address<br/>
-            Phone Number
-            </div>
-            </div>
-        </div>
-
         <div class="col-md-9">
             <h1><%= @user.first_name %> <%= @user.last_name %></h1>
-            <h3>Member Since: <%= @user.confirmation_sent_at %></h3>
-            <div class="description row-space-3">
-                <%= @user.description %>
-            </div>
+            <h2>Member Since: <%= @user.created_at.strftime(" %B %Y") %></h2>
+            <p><%= @user.description %></p>
         </div>
-    </div>    
+    </div>
+</div>  
+</div>
+<div class="container">
+
+    <div class="col-md-12">
+    <div class="row" >
+            <% @user.listings.each do |listing| %>
+                <% if listing.active == true && listing.sold != true %>
+                    
+                        <div class="col-md-4" >
+                        <div class="panel-default-height">
+                            <div class="image_list_col text-center"><%= image_tag listing.default_photo %></div>
+                                <br/>
+                                <div class="height-control text-center"><h4><%= listing.title %></h4></div>
+                                <div class="height-control text-center"><p><%= listing.address_number %> <%= listing.address_street %> <%= listing.address_zone %> <%= listing.address_city %></p></div>
+                                <div class="text-center"><p>Created on: <%= listing.created_at.strftime("%D") %><br/></p>
+                                <h3>Listed Price: <%= number_to_currency(listing.price, negative_format: "(%u%n)") %></h3></div>
+                                <br/>
+                                <%= link_to "View", listing_path(listing), class: "btn btn-form-view btn-block"%>
+                            </div> 
+                        </div>  
+                    
+                
+             <% end %>
+          <% end %>
+          </div>
+          </div>
+        </div>
+    </div>
+                
+                   
+                
+            
+        
