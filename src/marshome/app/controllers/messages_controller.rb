@@ -18,11 +18,13 @@ class MessagesController < ApplicationController
         @message = @conversation.messages.new(message_params)
         @messages = @conversation.messages.order("created_at DESC")
         if @message.save
+            
             ActionCable.server.broadcast "conversation_#{@conversation.id}", message: render_message(@message)
-            # redirect_to conversation_messages_path(@conversation)
-        
+                # redirect_to conversation_messages_path(@conversation)
+
 
         end
+
     end
 
     private

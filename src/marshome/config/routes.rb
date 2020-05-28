@@ -23,12 +23,14 @@ Rails.application.routes.draw do
   get '/your_purchases' => 'purchases#your_purchases'
   get '/your_sold' => 'purchases#your_sold'
   get 'search' => 'pages#search'
+  get '/show' => 'purchases#show'
+  get '/success' => 'purchases#success'
 
-
+  mount ActionCable.server => '/cable'
   resources :conversations, only: [:index, :create] do
     resources :messages, only: [:index, :create]
   end
 
-  mount ActionCable.server => '/cable'
+  
 
 end

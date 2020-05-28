@@ -13,25 +13,27 @@
                 </div>
                 <div class="panel-body">
                     <div class="container text-center">
+                    
                         <%= form_for [@conversation, @conversation.messages.new], remote: true do |f| %>
 
-                            <div class="form-group">
+                            <div class="chat">
                             
                                 <%= f.text_field :context, placeholder: "Add message", class: "form-control", id: "new_message" %>
-                            </div>
+                            
                             <%= f.hidden_field :user_id, value: current_user.id %>
                             <div>
                                 <%= f.submit "Send Message", class: "btn btn-normal" %>
                             </div>
                         <% end %>
+                        </div>
                     </div>
                 </div>
 
                 
 
             </div> 
-            <div id="chat">
-            
+            <div id="new_message">
+            <%# <div id="chat" conversation_id="<%= @conversation.id %>"> %>
                     <%= render @messages %>
                 </div>
         </div>   

@@ -5,7 +5,7 @@ class User < ApplicationRecord
   validates :first_name, presence: true, length: {maximum: 50}
   validates :last_name, presence: true, length: {maximum: 50}
   has_many :listings
-  has_many :rating_totals
+  # has_many :rating_totals
   # has_many :messages
   # has_many :conversations
   has_many :purchases
