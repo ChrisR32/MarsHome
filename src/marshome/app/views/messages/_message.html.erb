@@ -1,18 +1,18 @@
 <div class="panel-default-search">
     <div class="panel-body">
-    <%= image_tag avatar_url(message.user), class: "avatar_medium"%>
-    <strong><%= message.user.first_name %> <%= message.user.last_name %></strong>
-    <span class="pull-right"><br/><%= time_ago_in_words(message.message_time) %> ago</span>
-    <br/>
-    <br/>
-    <div class="row">
-    <div class="col-md-1 text-center">
-    </div>
-    <div class="col-md-9">
-    <div id="chat">
-    <%= message.context %>
-    </div>
-    </div>
-    </div>
+        <%= image_tag avatar_url(message.user), class: "avatar_medium"%>
+        <strong><%= message.user.first_name %> <%= message.user.last_name %></strong>
+        <span class="pull-right"><br/><%= time_ago_in_words(message.message_time) %> ago</span>
+        <br/>
+        <br/>
+        <div class="row">
+            <div class="col-md-1 text-center">
+            </div>
+            <div class="col-md-9">
+                <div id="new_message">
+                    <%= message.context %>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

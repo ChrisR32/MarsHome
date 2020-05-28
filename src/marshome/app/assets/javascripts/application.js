@@ -9,14 +9,10 @@
 //
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
-//
-//= require carousel
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap-sprockets
-//= require rails-ujs
 //= require toastr
 //= require activestorage
 //= require turbolinks
 //= require cable
-//= require_tree .
