@@ -6,8 +6,6 @@ https://warm-brook-32678.herokuapp.com
 Link to github repo: 
 https://github.com/ChrisR32/MarsHome
 
-I just want to appoligise for this being late, I had move houses last week and what was ment to take 1-2 days blew out into a 5 day drama with me having a breakdown somewhere around the thursday morning that this was due, when I realised that I couldn't get back to it. The sad part is that by looking at my github you can see that this is virtually the exact same app that I had 4 days out from due date with the only changes being minor and done within the last 24hrs to get it to play nice with heroku and me adding all this information to this readme. I had people I paid to help me walk off, i had a guy take the truck on a 5hr detour and was only moving 10minutes down the road. It was $1000 for me to hire someone to just comein move it all for me, but decided to save the money and hire a truck for 1-2 days and then then then then rental fees on the truck ended up just off the $1000 i was going to save. 
-Ah you live and learn I guess, i've never been so emotionally depleated ever, i remember picking up the laptop at 8:30pm on the due day thinking maybe I can pull it all togeather, but just spent an hour frustrated yealling at the computer as I couldn't even think how to procced. I know one thing I, right now, I never want to move again, dropping that truck off saturday morning getting the train home and finally sleeping was so good. Now i'm just gota finish the workbook and catchup with maths, for the major next week, and finaly a holiday, w00t w00t. I can get a certificate for mental heath if it helps but I pretty much accepted the 10% for lateness, i'm just glad that week week is over :)
 
 ## Section 1: Requirement checklist 
 
@@ -204,7 +202,8 @@ Bellow is what my database looked like at the end
 ## 7. Provide User stories for your App.
 2 User Stories are bellow:
 
-![Samantha](docs/user_stories/samantha.png)
+![Samantha](docs/user_stories/Samantha.png)
+
 ![Marvin](docs/user_stories/marvin.png)
 
 
